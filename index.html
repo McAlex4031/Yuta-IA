@@ -3,49 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuta-IA</title>
+    <title>YUTA AI | Accueil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        * {
+        html { scroll-behavior: smooth; }
+
+        :root {
+            --bg: #000000;
+            --text: #ffffff;
+            --sub: #888888;
+            --btn-bg: #ffffff;
+            --btn-text: #000000;
+            --border: #222222;
+        }
+
+        body.light-mode {
+            --bg: #ffffff;
+            --text: #000000;
+            --sub: #666666;
+            --btn-bg: #000000;
+            --btn-text: #ffffff;
+            --border: #eeeeee;
+        }
+
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background-color 0.4s, color 0.4s;
+            min-height: 100vh;
         }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+        /* Bouton Thème */
+        #theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: 1px solid var(--text);
+            color: var(--text);
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-radius: 4px;
+            z-index: 9999;
+        }
+
+        .hero-section {
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-        }
-        
-        .container {
             text-align: center;
-            background: white;
-            padding: 3rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            max-width: 600px;
+            padding: 40px 20px;
+            width: 100%;
+            box-sizing: border-box;
         }
-        
+
+        /* TITRE ET SOUS-TITRE */
+        .brand-container {
+            margin-bottom: 30px;
+        }
+
         h1 {
-            color: #333;
-            margin-bottom: 1rem;
-            font-size: 2.5rem;
+            font-size: clamp(2.5rem, 12vw, 5.5rem);
+            font-weight: 800;
+            letter-spacing: 15px;
+            margin: 0;
+            text-transform: uppercase;
+            color: var(--text) !important; /* Force la couleur */
+            display: block !important;
         }
-        
-        p {
-            color: #666;
-            font-size: 1.1rem;
-            line-height: 1.6;
+
+        .subtitle {
+            font-size: clamp(0.7rem, 2vw, 1rem);
+            color: var(--sub);
+            margin-top: 15px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 400;
         }
+
+        /* BOUTONS ET TEXTES */
+        .legal-intro {
+            font-size: 0.75rem;
+            color: var(--sub);
+            margin-top: 40px;
+            margin-bottom: 25px;
+            max-width: 450px;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .btn-primary {
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
+            padding: 18px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            transition: 0.3s;
+            border: 2px solid var(--btn-bg);
+            text-align: center;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text);
+            padding: 18px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            transition: 0.3s;
+            border: 2px solid var(--text);
+            text-align: center;
+        }
+
+        .description {
+            max-width: 750px;
+            margin-top: 60px;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--sub);
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        /* CONDITIONS */
+        .tos-container {
+            width: 100%;
+            max-width: 800px;
+            padding: 100px 20px;
+            margin-top: 50px;
+            border-top: 1px solid var(--border);
+            text-align: left;
+            box-sizing: border-box;
+        }
+
+        .tos-container strong { color: var(--text); display: block; margin-top: 25px; margin-bottom: 10px; font-size: 1.1rem; }
+        .tos-container p, .tos-container li { font-size: 0.9rem; color: var(--sub); line-height: 1.6; margin-bottom: 12px; }
+        .tos-container ul { padding-left: 20px; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🚀 Yuta-IA</h1>
-        <p>Bienvenue sur le projet Yuta-IA</p>
-    </div>
+
+    <button id="theme-toggle">🌓 Mode Clair / Sombre</button>
+
+    <section class="hero-section">
+        <div class="brand-container">
+            <h1>YUTA AI</h1>
+            <div class="subtitle">BY YUTA Studio développé par Alexandre</div>
+        </div>
+        
+        <p class="legal-intro">En continuant, vous acceptez notre politique de confidentialité et les conditions d'utilisation suivantes.</p>
+
+        <div class="btn-container">
+            <a href="https://script.google.com/macros/s/AKfycbxDfrh62lTsAo6nI4WGyBnI_CQ26KvDosWANA5fvXRKcnMOYX2Crn4EgFlqwOe72zg_/exec" class="btn-primary">Essayer Yuta AI</a>
+            <a href="#conditions" class="btn-secondary">Conditions d'utilisation</a>
+        </div>
+
+        <div class="description">
+            Yuta AI est une intelligence artificielle polyvalente conçue pour simplifier votre quotidien numérique à travers cinq modes spécialisés. 
+            En s'appuyant sur les infrastructures de pointe Groq et des modèles de langage optimisés, elle offre une vitesse de réponse exceptionnelle pour le code, la rédaction et la pédagogie. 
+            Son fonctionnement repose sur un traitement de données instantané et anonyme, garantissant une fluidité totale sans stockage de vos conversations privées. 
+            Que vous soyez étudiant, développeur ou créatif, Yuta AI adapte sa logique pour fournir des réponses précises et structurées en un temps record. 
+            C'est un outil complet, minimaliste et performant, pensé pour mettre la puissance de l'IA au service de votre productivité.
+        </div>
+    </section>
+
+    <section class="tos-container" id="conditions">
+        <p><strong>Conditions d'utilisation et de confidentialité pour Yuta AI</strong></p>
+        <p>En utilisant Yuta AI, vous acceptez les conditions et les termes définis ci-dessous. Nous nous engageons à préserver votre confidentialité et à protéger vos données.</p>
+        
+        <p><strong>Collecte et utilisation des données</strong></p>
+        <ul>
+            <li>Aucune de vos données personnelles, y compris vos discussions avec Yuta AI, ne sont sauvegardées ou stockées sur nos serveurs.</li>
+            <li>Vos interactions avec Yuta AI sont totalement anonymes et ne permettent pas d'identifier votre identité ou vos informations personnelles.</li>
+            <li>Vos discussions avec Yuta AI servent uniquement à améliorer et à entraîner nos modèles de langage de façon anonyme.</li>
+        </ul>
+
+        <p><strong>Utilisation responsable</strong></p>
+        <ul>
+            <li>Nous vous recommandons de ne pas discuter de sujets sensibles ou personnels avec Yuta AI, tels que vos informations financières, médicales ou autres données confidentielles.</li>
+            <li>Il est important de ne pas partager d'informations qui pourraient être utilisées pour identifier votre identité ou celle de tiers.</li>
+            <li>Yuta AI est conçu pour fournir des informations générales et des divertissements. Il ne doit pas être utilisé comme conseiller ou expert dans des domaines sensibles.</li>
+        </ul>
+
+        <p><strong>Confidentialité</strong></p>
+        <ul>
+            <li>Nous respectons votre vie privée et nous nous engageons à ne pas partager ou divulguer vos informations avec des tiers.</li>
+            <li>Nous utilisons des mesures de sécurité pour protéger nos systèmes et nos données contre tout accès non autorisé.</li>
+        </ul>
+
+        <p><strong>Mises à jour des conditions</strong></p>
+        <ul>
+            <li>Nous nous réservons le droit de modifier ces conditions d'utilisation et de confidentialité à tout moment sans préavis.</li>
+            <li>Il est de votre responsabilité de vous tenir informé des mises à jour et des changements apportés à ces conditions.</li>
+        </ul>
+
+        <p style="margin-top: 30px;">En utilisant Yuta AI, vous acceptez les conditions et les termes définis ci-dessous. Si vous n'êtes pas d'accord avec ces conditions, veuillez cesser d'utiliser Yuta AI immédiatement.</p>
+    </section>
+
+    <script>
+        const themeBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        const savedTheme = localStorage.getItem('yuta-theme');
+        if (savedTheme === 'light') {
+            body.classList.add('light-mode');
+        }
+
+        themeBtn.onclick = () => {
+            body.classList.toggle('light-mode');
+            localStorage.setItem('yuta-theme', body.classList.contains('light-mode') ? 'light' : 'dark');
+        };
+    </script>
+
 </body>
 </html>
